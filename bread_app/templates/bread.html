@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread 2025</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bread.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<main>
+<CENTER>
+<h1>{{ title }}</h1>
+
+<h2>{% for url, passage, ignore in data %}
+<A HREF={{ url }}>{{ passage }}</A>
+{% endfor %}</h2>
+
+<div class="offset_description">{{ offset_description }}</div><br>
+{% if yesterday_exists %}<A HREF={{ url_for('decrease_day') }}>&lt;&lt;</A>{% endif %}
+{% if is_today %}<div class="light-text">{% else %}<A HREF={{ url_for('today') }}>{% endif %}Today{% if is_today %}</div>{% else %}</A>{% endif %}
+{% if tomorrow_exists %}<A HREF={{ url_for('increase_day') }}>&gt;&gt;</A>{% endif %}
+</CENTER>
+</main>
+<footer>
+<p>This website uses cookies but does not store personal information.</p>
+</footer>
+</div>
+</BODY>
+</html>

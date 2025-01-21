@@ -1,0 +1,66 @@
+* {
+    font-family: Montserrat;
+    color = dimgray
+    margin-top: 2px;
+}
+
+div {
+    display: inline;
+    color: black;
+}
+
+.light-text {
+    color: #b0b0b0;
+}
+
+.offset_description {
+    font-size: 10px;
+}
+
+/* Apply a futuristic font */
+h1 {
+    font-family: Montserrat;
+    font-size: 20px;
+    text-align: center;
+    color: dimgray;
+    font-weight: normal;
+    margin-bottom: 2px;
+}
+
+h2 {
+    font-family: Montserrat;
+    font-size: 18px;
+    text-align: center;
+    color: dimgray;
+    font-weight: normal;
+    margin-top: 2px;
+    margin-bottom: 60px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #faebd7, #fffff0); /* Dark, space-like background */
+    font-family: Montserrat;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+footer {
+    font-family: Montserrat;
+    color: dimgray;
+    font-size: 8px;
+    text-align: right;
+    padding: 1px;
+    border-top: 1px solid #ddd;
+}

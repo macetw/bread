@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread 2025, Enroll</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bread.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<H2>Consent to Receive Daily Text Messages</H2>
+By providing your phone number and enrolling the Bread project, you consent to receive daily text messages for the daily reading with the Bread journal. Text messages will be sent around 7:45am Pacific Time.
+
+<H2>Message and data rates may apply.</H2>
+<LI>You can opt out anytime by replying STOP.</LI>
+<LI>For assistance, reply HELP or contact me at macetw at gmail.com.
+<LI>By clicking "Sign Up", you confirm that you have read and agree to these terms.
+<HR>
+<TABLE BORDER=0><TR><TD>
+<form action={{ url_for("enroll") }} method="POST">
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" pattern="\d\d\d-?\d\d\d-?\d\d\d\d" placeholder="123-456-7890" required>
+    <button type="submit">Sign Up</button>
+</form></TD><TD>
+<form action={{ url_for("today") }} method="GET">
+    <button type="submit">Cancel</button>
+</form>
+</TD></TR></TABLE>
+
+</body>
+</html>

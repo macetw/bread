@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve my Flask app
+After=network.target
+
+[Service]
+User=USER
+Group=USER
+WorkingDirectory=/var/www
+Environment="PATH=/var/www/bread_app/bread_env/bin"
+ExecStart=/var/www/bread_app/bread_env/bin/gunicorn -w 4 -b 0.0.0.0:8000 bread_app:app --reload
+
+[Install]
+WantedBy=multi-user.target
