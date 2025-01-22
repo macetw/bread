@@ -38,6 +38,14 @@ class DataHandler:
             return self.data[key]
         return []
 
+    def get_all_data(self) -> list[str, str, str]:
+        if not self.data:
+            self.read_data()
+        return_value = []
+        for key, datum in self.data.items():
+            return_value.extend(datum)
+        return return_value
+
     def data_exists(self, key: str) -> bool:
         if not self.data:
             self.read_data()
@@ -85,9 +93,21 @@ def reread():
     data_handler.read_data()
     return home()
 
-@app.route("/send")
-def send():
-    pass
+@app.route('/test')
+def test() -> str:
+    data = data_handler.get_all_data()
+    if data:
+        return render_template(
+          "bread.html",
+          is_today=True,
+          yesterday_exists=False,
+          tomorrow_exists=False,
+          title="Test Data",
+          data=data,
+          offset_description="",
+        )
+    else:
+        return f"There's no data."
 
 @app.route('/today')
 def today():
@@ -105,15 +125,6 @@ def decrease_day() -> str:
     new_offset = session.get('day_offset', 0) - 1
     session['day_offset'] = new_offset
     return redirect(url_for('home'))
-
-@app.route('/test')
-def test() -> str:
-    for i in range(365):
-        day_offset = i
-        if todaystr(day_offset) == "2025-08-05":
-            session['day_offset'] = day_offset
-            return home()
-    return home()
 
 def offset_description(day_offset: int) -> str:
     if day_offset == 0:
